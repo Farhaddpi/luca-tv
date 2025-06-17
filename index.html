@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>Luca TV - Live War Coverage</title>
+  <title>Luca TV - Iran & Israel War Live</title>
   <style>
     body {
       margin: 0;
@@ -10,8 +10,8 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       height: 100vh;
-      background-color: black;
       gap: 2px;
+      background-color: black;
     }
     iframe {
       width: 100%;
@@ -22,10 +22,17 @@
   </style>
 </head>
 <body>
-  <iframe id="vid1" src="https://www.youtube.com/embed/sE-YfSPcRcU?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa&hl=fa" title="Iran International"></iframe>
-  <iframe id="vid2" src="https://www.youtube.com/embed/OEz_GiVgwhY?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1" title="i24NEWS Live"></iframe>
+  <!-- Iran International -->
+  <iframe id="vid1" src="https://www.youtube.com/embed/sE-YfSPcRcU?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa" title="Iran International"></iframe>
+
+  <!-- VOA Persian -->
+  <iframe id="vid2" src="https://www.youtube.com/embed/pFhYB_MZjak?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa" title="VOA Persian"></iframe>
+
+  <!-- Al Jazeera English -->
   <iframe id="vid3" src="https://www.youtube.com/embed/gCNeDWCI0vo?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1" title="Al Jazeera English"></iframe>
-  <iframe id="vid4" src="https://www.youtube.com/embed/h8XEk1V5WGM?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa&hl=fa" title="BBC Persian"></iframe>
+
+  <!-- BBC Persian -->
+  <iframe id="vid4" src="https://www.youtube.com/embed/h8XEk1V5WGM?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa" title="BBC Persian"></iframe>
 
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
