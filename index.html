@@ -31,11 +31,26 @@
       position: relative;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       background: #000;
+      overflow: hidden;
     }
 
-    iframe {
+    /* For YouTube boxes: slightly shrink inside the box */
+    .frame.yt {
+      padding: 6px;
+    }
+
+    .frame.yt iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background: #000;
+      border-radius: 10px;
+    }
+
+    /* Non-YouTube frame */
+    .frame.web iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -45,8 +60,8 @@
 
     .label {
       position: absolute;
-      left: 12px;
-      bottom: 12px;
+      left: 16px;
+      bottom: 16px;
       z-index: 10;
       padding: 8px 12px;
       border-radius: 12px;
@@ -82,8 +97,8 @@
       }
 
       .label {
-        left: 10px;
-        bottom: 10px;
+        left: 12px;
+        bottom: 12px;
         font-size: 13px;
         padding: 7px 10px;
       }
@@ -91,43 +106,56 @@
   </style>
 </head>
 <body>
-  <div class="frame">
+  <!-- 1) Iran International -->
+  <div class="frame yt">
     <iframe
       id="vid1"
       src="https://www.youtube.com/embed/A92pqZQAsm8?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa"
-      title="Iran International">
+      title="Iran International"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
     </iframe>
     <div class="label">Iran International</div>
   </div>
 
-  <div class="frame">
+  <!-- 2) NBC News NOW -->
+  <div class="frame yt">
     <iframe
       id="vid2"
-      src="https://www.youtube.com/embed/live_stream?channel=UCupvZG-5ko_eiXAupbDfxWw&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
-      title="CNN Live">
+      src="https://www.youtube.com/embed/yMr0neQhu6c?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="NBC News NOW"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
     </iframe>
-    <div class="label">CNN Live</div>
+    <div class="label">NBC News NOW</div>
   </div>
 
-  <div class="frame">
+  <!-- 3) ILTV Israel News -->
+  <div class="frame yt">
     <iframe
       id="vid3"
-      src="https://www.youtube.com/embed/live_stream?channel=UCKEImtWikw9usC1pl_9m1nQ&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
-      title="Channel 14 Israel">
+      src="https://www.youtube.com/embed/jh3dta8iBZg?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="ILTV Israel News"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
     </iframe>
-    <div class="label">Channel 14 Israel</div>
+    <div class="label">ILTV Israel News</div>
   </div>
 
-  <div class="frame">
+  <!-- 4) Al Jazeera English -->
+  <div class="frame yt">
     <iframe
       id="vid4"
       src="https://www.youtube.com/embed/gCNeDWCI0vo?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
-      title="Al Jazeera English">
+      title="Al Jazeera English"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
     </iframe>
     <div class="label">Al Jazeera English</div>
   </div>
 
-  <div class="frame">
+  <!-- 5) Shabake Khabar -->
+  <div class="frame web">
     <iframe
       id="vid5"
       src="https://telewebion.ir/live/irinn"
@@ -136,11 +164,14 @@
     <div class="label">Shabake Khabar</div>
   </div>
 
-  <div class="frame">
+  <!-- 6) LiveNOW from FOX -->
+  <div class="frame yt">
     <iframe
       id="vid6"
       src="https://www.youtube.com/embed/ZvdiJUYGBis?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
-      title="LiveNOW from FOX">
+      title="LiveNOW from FOX"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
     </iframe>
     <div class="label">LiveNOW from FOX</div>
   </div>
