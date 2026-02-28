@@ -1,38 +1,127 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luca TV - Iran & Israel War Live</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      height: 100vh;
       gap: 2px;
-      background-color: black;
+      height: 100vh;
+      background-color: #000;
     }
+
+    .frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      cursor: pointer;
+      display: block;
+      background: #000;
+    }
+
+    .label {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 10;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.72);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 50vh);
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .frame {
+        height: 50vh;
+      }
+
+      .label {
+        left: 10px;
+        bottom: 10px;
+        font-size: 13px;
+        padding: 7px 10px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Iran International -->
-  <iframe id="vid1" src="https://www.youtube.com/embed/A92pqZQAsm8?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa" title="Iran International"></iframe>
+  <div class="frame">
+    <iframe
+      id="vid1"
+      src="https://www.youtube.com/embed/A92pqZQAsm8?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa"
+      title="Iran International">
+    </iframe>
+    <div class="label">Iran International</div>
+  </div>
 
   <!-- i24NEWS English -->
-  <iframe id="vid2" src="https://www.youtube.com/embed/live_stream?channel=UCvHDpsWKADrDia0c99X37vg&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1" title="i24NEWS English"></iframe>
+  <div class="frame">
+    <iframe
+      id="vid2"
+      src="https://www.youtube.com/embed/live_stream?channel=UCvHDpsWKADrDia0c99X37vg&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="i24NEWS English">
+    </iframe>
+    <div class="label">i24NEWS English</div>
+  </div>
 
   <!-- Al Jazeera English -->
-  <iframe id="vid3" src="https://www.youtube.com/embed/gCNeDWCI0vo?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1" title="Al Jazeera English"></iframe>
+  <div class="frame">
+    <iframe
+      id="vid3"
+      src="https://www.youtube.com/embed/gCNeDWCI0vo?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="Al Jazeera English">
+    </iframe>
+    <div class="label">Al Jazeera English</div>
+  </div>
 
   <!-- Shabake Khabar -->
-  <iframe id="vid4" src="https://telewebion.ir/live/irinn" title="Shabake Khabar"></iframe>
+  <div class="frame">
+    <iframe
+      id="vid4"
+      src="https://telewebion.ir/live/irinn"
+      title="Shabake Khabar">
+    </iframe>
+    <div class="label">Shabake Khabar</div>
+  </div>
 
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
@@ -40,13 +129,13 @@
     const players = {};
 
     function onYouTubeIframeAPIReady() {
-      youtubeIds.forEach(id => {
+      youtubeIds.forEach((id) => {
         players[id] = new YT.Player(id);
       });
     }
 
     function muteAllExcept(activeId) {
-      youtubeIds.forEach(id => {
+      youtubeIds.forEach((id) => {
         if (players[id]) {
           if (id === activeId) {
             players[id].unMute();
@@ -58,7 +147,7 @@
     }
 
     window.addEventListener("click", function (e) {
-      youtubeIds.forEach(id => {
+      youtubeIds.forEach((id) => {
         const el = document.getElementById(id);
         if (el && el.contains(e.target)) {
           muteAllExcept(id);
