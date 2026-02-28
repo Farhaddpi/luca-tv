@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luca TV - Iran & Israel War Live</title>
+  <title>Luca TV - Live News MultiView</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,19 +12,19 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
       width: 100%;
       height: 100%;
+      background: #000;
       font-family: Arial, sans-serif;
     }
 
     body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 2px;
       height: 100vh;
-      background-color: #000;
+      background: #000;
     }
 
     .frame {
@@ -61,10 +61,18 @@
       pointer-events: none;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
+      body {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 33.33vh);
+        height: 100vh;
+      }
+    }
+
+    @media (max-width: 700px) {
       body {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 50vh);
+        grid-template-rows: repeat(6, 50vh);
         height: auto;
         min-height: 100vh;
       }
@@ -83,7 +91,6 @@
   </style>
 </head>
 <body>
-  <!-- Iran International -->
   <div class="frame">
     <iframe
       id="vid1"
@@ -93,39 +100,54 @@
     <div class="label">Iran International</div>
   </div>
 
-  <!-- i24NEWS English -->
   <div class="frame">
     <iframe
       id="vid2"
-      src="https://www.youtube.com/embed/live_stream?channel=UCvHDpsWKADrDia0c99X37vg&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
-      title="i24NEWS English">
+      src="https://www.youtube.com/embed/live_stream?channel=UCupvZG-5ko_eiXAupbDfxWw&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="CNN Live">
     </iframe>
-    <div class="label">i24NEWS English</div>
+    <div class="label">CNN Live</div>
   </div>
 
-  <!-- Al Jazeera English -->
   <div class="frame">
     <iframe
       id="vid3"
+      src="https://www.youtube.com/embed/live_stream?channel=UCKEImtWikw9usC1pl_9m1nQ&enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="Channel 14 Israel">
+    </iframe>
+    <div class="label">Channel 14 Israel</div>
+  </div>
+
+  <div class="frame">
+    <iframe
+      id="vid4"
       src="https://www.youtube.com/embed/gCNeDWCI0vo?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
       title="Al Jazeera English">
     </iframe>
     <div class="label">Al Jazeera English</div>
   </div>
 
-  <!-- Shabake Khabar -->
   <div class="frame">
     <iframe
-      id="vid4"
+      id="vid5"
       src="https://telewebion.ir/live/irinn"
       title="Shabake Khabar">
     </iframe>
     <div class="label">Shabake Khabar</div>
   </div>
 
+  <div class="frame">
+    <iframe
+      id="vid6"
+      src="https://www.youtube.com/embed/ZvdiJUYGBis?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1"
+      title="LiveNOW from FOX">
+    </iframe>
+    <div class="label">LiveNOW from FOX</div>
+  </div>
+
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    const youtubeIds = ["vid1", "vid2", "vid3"];
+    const youtubeIds = ["vid1", "vid2", "vid3", "vid4", "vid6"];
     const players = {};
 
     function onYouTubeIframeAPIReady() {
