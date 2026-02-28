@@ -31,20 +31,23 @@
   <!-- Al Jazeera English -->
   <iframe id="vid3" src="https://www.youtube.com/embed/gCNeDWCI0vo?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1" title="Al Jazeera English"></iframe>
 
-  <!-- BBC Persian -->
-  <iframe id="vid4" src="https://www.youtube.com/embed/h8XEk1V5WGM?enablejsapi=1&mute=1&autoplay=1&cc_load_policy=1&cc_lang_pref=fa" title="BBC Persian"></iframe>
+  <!-- Shabake Khabar -->
+  <iframe id="vid4" src="https://telewebion.ir/live/irinn" title="Shabake Khabar"></iframe>
 
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    const ids = ["vid1", "vid2", "vid3", "vid4"];
+    const youtubeIds = ["vid1", "vid2", "vid3"];
+    const allIds = ["vid1", "vid2", "vid3", "vid4"];
     const players = {};
+
     function onYouTubeIframeAPIReady() {
-      ids.forEach(id => {
+      youtubeIds.forEach(id => {
         players[id] = new YT.Player(id);
       });
     }
+
     function muteAllExcept(activeId) {
-      ids.forEach(id => {
+      youtubeIds.forEach(id => {
         if (players[id]) {
           if (id === activeId) {
             players[id].unMute();
@@ -54,8 +57,9 @@
         }
       });
     }
+
     window.addEventListener("click", function (e) {
-      ids.forEach(id => {
+      youtubeIds.forEach(id => {
         const el = document.getElementById(id);
         if (el && el.contains(e.target)) {
           muteAllExcept(id);
